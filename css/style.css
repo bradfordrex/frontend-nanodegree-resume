@@ -79,6 +79,14 @@ a {
   display: block;
 }
 
+/* creating specific style for links in the contact box, so they will not
+    bounce to a new line when link is active to social media sites */
+
+#topContacts a,
+#footerContacts a {
+  display: inline;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;

@@ -109,8 +109,15 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    zoomControl: true,
+    panControl: true
   };
+
+  // Moved infoWindow here to a higher scope, so that only one object is called for each marker.
+  // Now it will automatically close the window and only let one be open at a time.
+  var infoWindow = new google.maps.InfoWindow({
+  });
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
@@ -167,13 +174,14 @@ function initializeMap() {
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
+    // moved the creation of the info window directly after intitializing the map to a higer scope.
+
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.setContent(name);
+      infoWindow.open(map,this)
     });
 
     // this is where the pin actually gets added to the map.
