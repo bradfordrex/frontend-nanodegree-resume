@@ -158,6 +158,13 @@ img {
   padding: 10px;
 }
 
+iframe {
+  display: block;
+  margin: 0 auto;
+  width: 640px;
+  height: 360px;
+}
+
 /* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;
